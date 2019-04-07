@@ -5,7 +5,7 @@
 
 library(network)
 library(sna)
-library(PNG)
+library(png)
 points.with.raster<-function(x,y,raster,width=10,height=10,...){
   #x,y vectors are centroids
   #raster is a list of raster arrays
@@ -25,7 +25,7 @@ points.with.raster<-function(x,y,raster,width=10,height=10,...){
 
 if(0){
  library(bib2df)
- marcum<-bib2df("Dropbox/csm_cv/articlecv/marcum.bib")
+ marcum<-bib2df("https://www.dropbox.com/s/k15vwyr5fe2itdk/marcum.bib?dl=1")
  keywords<-lapply(strsplit(marcum$KEYWORDS,split=","),function(x) gsub(" ","",x))
  kw.sup<-na.omit(unique(unlist(keywords)))
  for(i in 1:length(keywords)){
@@ -39,7 +39,7 @@ load("marcum.cites.RData")
 icons<-sapply(dir(pattern="png"),readPNG)
 
 if(1){
-png("marcumtopics.png",width=800,height=800)
+png("marcumtopics.png",width=800,height=800,res=100)
 par(mar=c(.5,.5,.5,.5))}
 gplot(topics,displaylabels=TRUE,usearrows=FALSE,edge.lwd=sqrt(topics),vertex.cex=log(diag(topics))+.05,vertex.col="cornflowerblue",vertex.border=FALSE,label.pos=3,coord=gcord,edge.col="gray",label.cex=1.25,jitter=FALSE)
 points.with.raster(gcord[,1],gcord[,2],icons[paste(colnames(topics),"png",sep=".")],width= ifelse(prop.table(diag(topics))<.1,.1,prop.table(diag(topics))),height= ifelse(prop.table(diag(topics))<.1,.1,prop.table(diag(topics))),cex=0)
