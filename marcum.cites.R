@@ -41,7 +41,7 @@ load("marcum.cites.RData")
 #icons<-sapply(dir(pattern="png"),readPNG)
 #icons["marcumtopics.png"]<-NULL
 
-        if(0{
+        if(0){
         png("marcumtopics.png",width=800,height=800,res=100)
         par(mar=c(.5,.5,.5,.5))}
         gplot(topics,displaylabels=TRUE,usearrows=FALSE,edge.lwd=sqrt(topics),vertex.cex=log(diag(topics))+.05,vertex.col="cornflowerblue",vertex.border=FALSE,label.pos=3,coord=gcord,edge.col="gray",label.cex=1.25,jitter=FALSE)
